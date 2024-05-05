@@ -23,7 +23,7 @@ echo "xxd (hex)"
 java-algs4 Huffman - < input.txt | xxd
 echo ""
 
-echo "hexdump -b (binday)"
+echo "hexdump -b (binary)"
 java-algs4 Huffman - < input.txt | hexdump -b
 
 # ---------------------------------------------------------------------
