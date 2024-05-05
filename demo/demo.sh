@@ -10,8 +10,16 @@
 # ---------------------------------------------------------------------
 # How to run this program:
 #   ./demo.sh
-#
 
+# Compile `Huffman.java` from textbook Chapter 5: Strings.
+# Source:
+#   https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/Huffman.java.html
+javac-algs4 Huffman.java
+echo "xxd (hex)"
+java-algs4 Huffman - < input.txt | xxd
+echo ""
+echo "hexdump -b (binday)"
+java-algs4 Huffman - < input.txt | hexdump -b
 
 # ---------------------------------------------------------------------
 # Basics of Bash Scripting
