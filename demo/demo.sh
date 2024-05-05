@@ -1,6 +1,19 @@
 #!/bin/bash
 
 # ---------------------------------------------------------------------
+# 2024-05-06 ADS (Alec, Deepak, and Soobin)
+# Advanced Data Structures and Algorithms
+# ---------------------------------------------------------------------
+
+# ---------------------------------------------------------------------
+# Using Huffman Compression to create a compressed backup
+# ---------------------------------------------------------------------
+# How to run this program:
+#   ./demo.sh
+#
+
+
+# ---------------------------------------------------------------------
 # Basics of Bash Scripting
 # ---------------------------------------------------------------------
 # I started using this script with:
@@ -164,51 +177,3 @@
 # How to store an output of a executed program. It's simple:
 #   output=$(./run)
 
-# ---------------------------------------------------------------------
-# Using Huffman Compression to create a compressed backup
-# ---------------------------------------------------------------------
-# How to run this program:
-#   ./demo.sh
-#
-# Then, it will save the results to files in the form of
-# `2023-02-26-131509-iteration0-1.txt`
-# `2023-02-26-131509-iteration0-2.txt`
-# `2023-02-26-131509-iteration1-1.txt`
-# `2023-02-26-131509-iteration1-2.txt`
-# `2023-02-26-131509-iteration2-1.txt`
-# `2023-02-26-131509-iteration2-2.txt`
-read -p "Enter how many iterations you want: " NUM_ITERATIONS
-if ! [[ "$NUM_ITERATIONS" =~ ^[0-9]+$ ]]; then 
-    echo "[ERROR] Number of iterations should be an integer."
-    exit 1
-fi
-
-OUTPUT_FOLDER="./testOutput"
-if ! [ -d $OUTPUT_FOLDER ]; then
-    mkdir "$OUTPUT_FOLDER"
-fi
-
-count=0
-while [[ $count -lt $NUM_ITERATIONS ]]; do 
-    PROMPT="Enter the filename(s) of the program you want to test: "
-    read -p "$PROMPT" -a FILENAMES
-
-    PROMPT="Enter the parameter(s) of the program you want to run with: "
-    read -p "$PROMPT" -a PARAMETERS
-
-    if [ ${#FILENAMES[@]} -ne ${#PARAMETERS[@]} ]; then 
-        echo "[ERROR] Invalid input. Both numbers should match."
-        exit 1
-    fi
-
-    for i in ${!FILENAMES[@]}; do
-        CURRENT_TIME="$(date +%Y-%m-%d-%H%M%S)"
-        FILENAME="${CURRENT_TIME}-${FILENAMES[i]}${PARAMETERS[i]}.txt"
-        echo "Starting ${FILENAME} ..."
-        ./"${FILENAMES[i]}" "${PARAMETERS[i]}" >> "${OUTPUT_FOLDER}/${FILENAME}" 2>&1 
-    done
-
-    count=$((count + 1)) 
-done
-
-echo "[SUCCESS] Task complete."
