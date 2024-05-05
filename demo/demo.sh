@@ -2,10 +2,7 @@
 
 # ---------------------------------------------------------------------
 # 2024-05-06 ADS (Alec, Deepak, and Soobin)
-# Advanced Data Structures and Algorithms
-# ---------------------------------------------------------------------
-
-# ---------------------------------------------------------------------
+# Advanced Data Structures and Algorithms: Final HW
 # Using Huffman Compression to create a compressed backup
 # ---------------------------------------------------------------------
 # How to run this program:
@@ -189,4 +186,3 @@ java-algs4 Huffman - < input.txt | hexdump -b
 
 # How to store an output of a executed program. It's simple:
 #   output=$(./run)
-
