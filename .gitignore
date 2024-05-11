@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+
+# IntelliJ Files
+.idea/
+
+# Ignore .class Files
+*.class
